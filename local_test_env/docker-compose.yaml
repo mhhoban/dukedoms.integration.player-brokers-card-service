@@ -1,0 +1,21 @@
+version: '2'
+services:
+  dukedoms-rdbs:
+    image: mhhoban/dukedoms-rdbs:latest
+    ports:
+      - 5432:5432
+
+  player-service:
+    image: mhhoban/dukedoms-player-service:latest
+    ports:
+      - 5004:8080
+
+  card-service:
+    image: mhhoban/dukedoms-card-service:latest
+    ports:
+      - 5005:8080
+
+  card-broker:
+    image: mhhoban/dukedoms-card-broker:latest
+    ports:
+      - 5006:8080
