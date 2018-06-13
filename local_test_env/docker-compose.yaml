@@ -9,13 +9,22 @@ services:
     image: mhhoban/dukedoms-player-service:latest
     ports:
       - 5004:8080
+    command: ["../wait-for-it.sh", "card-broker:8080", "--", "gunicorn", "main:application", "-b", "0.0.0.0:8080"]
 
   card-service:
     image: mhhoban/dukedoms-card-service:latest
     ports:
       - 5005:8080
+    command: ["../wait-for-it.sh", "dukedoms-rdbs:5432", "--", "gunicorn", "main:application", "-b", "0.0.0.0:8080"]
 
   card-broker:
     image: mhhoban/dukedoms-card-broker:latest
     ports:
       - 5006:8080
+    command: ["../wait-for-it.sh", "dukedoms-rdbs:5432", "--", "gunicorn", "main:application", "-b", "0.0.0.0:8080"]
+
+  action-broker:
+    image: mhhoban/dukedoms-action-broker:latest
+    ports:
+      - 5007:8080
+    command: ["../wait-for-it.sh", "card-broker:8080", "--", "gunicorn", "main:application", "-b", "0.0.0.0:8080"]

@@ -12,9 +12,26 @@ def get_env_urls(env):
     urls.container.player_service_db = (
         'postgresql+psycopg2://postgres:daleria@dukedoms-rdbs:5432/player_service'
     )
-
+    urls.container.card_service_db = (
+        'postgresql+psycopg2://postgres:daleria@127.0.0.1:5432/card_service'
+    )
+    urls.container.card_broker_db = (
+        'postgresql+psycopg2://postgres:daleria@dukedoms-rdbs:5432/card_broker'
+    )
 
     urls.local.action_broker = 'http://127.0.0.1:5007'
+    urls.local.card_service = 'http://127.0.0.1:5005'
+    urls.local.card_broker = 'http://127.0.0.1:5006'
+
+    urls.local.card_service_db = (
+        'postgresql+psycopg2://postgres:daleria@127.0.0.1:5432/card_service'
+    )
+    urls.local.player_service_db = (
+        'postgresql+psycopg2://postgres:daleria@127.0.0.1:5432/player_service'
+    )
+    urls.local.card_broker_db = (
+        'postgresql+psycopg2://postgres:daleria@127.0.0.1:5432/card_broker'
+    )
 
     return urls.local if env == 'local' else urls.container
 
