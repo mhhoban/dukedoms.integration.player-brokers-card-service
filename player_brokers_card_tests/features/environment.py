@@ -51,8 +51,29 @@ def before_scenario(context, step):
     context.clients = Dict()
     context.clients.action_broker = SwaggerClient.from_spec(
         load_file(
-            'specs/dukedoms_action_broker_api.yaml',
+            'swagger/action_broker_api.yaml',
         ),
         origin_url=context.urls.action_broker,
+        config=config
+    )
+    context.clients.card_broker = SwaggerClient.from_spec(
+        load_file(
+            'swagger/card_broker_api.yaml',
+        ),
+        origin_url=context.urls.card_broker,
+        config=config
+    )
+    context.clients.card_service = SwaggerClient.from_spec(
+        load_file(
+            'swagger/card_service_api.yaml',
+        ),
+        origin_url=context.urls.card_service,
+        config=config
+    )
+    context.clients.player_service = SwaggerClient.from_spec(
+        load_file(
+            'swagger/player_service_api.yaml',
+        ),
+        origin_url=context.urls.player_service,
         config=config
     )

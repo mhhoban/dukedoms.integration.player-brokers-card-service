@@ -5,6 +5,7 @@ Feature: Game Flow
   Background: Empty database
     Given an empty database
 
+  @foo
   Scenario: Activate New Game
     Given a pending game:
       | game id | account ids |
@@ -22,6 +23,7 @@ Feature: Game Flow
       | game id | game status | phase    |
       | 1337    | active      | inactive |
 
+  @wip
   Scenario: Starting Game State
     Given an activated game:
       | game id | account ids |
@@ -37,6 +39,7 @@ Feature: Game Flow
       | deck size | hand size | discard size |
       | 5         | 5         | 0            |
 
+  @wip
   Scenario: Player Buys Card
     Given an activated game:
       | game id | account ids |
