@@ -9,17 +9,19 @@ Feature: Game Flow
   Scenario: Activate New Game
     Given a pending game:
       | game id | account ids |
-      | 1337    | 11, 13      |
+      | 1337    | 11,13       |
     When player service receives request to activate pending player:
       | account id | phase     |
       | 11         | inactive  |
     And player service receives request to activate pending player:
       | account id | phase  |
       | 13         | action |
-    Then when player service receives request for player status for account id "13" it returns:
+    When player service receives request for player status for account id "13"
+    Then player service returns player status:
       | game id | game status | phase  |
       | 1337    | active      | action |
-    Then when player service receives request for player status for account id "11" it returns:
+    When player service receives request for player status for account id "11"
+    Then player service returns player status:
       | game id | game status | phase    |
       | 1337    | active      | inactive |
 

@@ -1,4 +1,6 @@
 addict
 behave
 bravado
+psycopg2
 pyhamcrest
+sqlalchemy

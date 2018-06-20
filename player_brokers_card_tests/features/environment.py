@@ -36,6 +36,9 @@ def get_env_urls(env):
     return urls.local if env == 'local' else urls.container
 
 def before_scenario(context, step):
+    # Dict to track player ids, that are assigned by player service, by account number,
+    # which tests control
+    context.player_ids = {}
 
     config = {
         'also_return_response': True,

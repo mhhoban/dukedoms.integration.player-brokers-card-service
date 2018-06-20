@@ -17,7 +17,7 @@ def clear_card_broker_db(context):
     session.close()
 
     # Clear player service tables
-    engine = create_engine(context.env_urls.player_service_db)
+    engine = create_engine(context.urls.player_service_db)
     Session = scoped_session(sessionmaker(bind=engine))
     session = Session()
     session.execute('TRUNCATE TABLE players')
@@ -25,7 +25,7 @@ def clear_card_broker_db(context):
     session.close()
 
     # clear card service table
-    engine = create_engine(context.env_urls.card_service_db)
+    engine = create_engine(context.urls.card_service_db)
     Session = scoped_session(sessionmaker(bind=engine))
     session = Session()
     session.execute('TRUNCATE TABLE cardlists')
