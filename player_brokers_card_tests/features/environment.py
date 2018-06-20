@@ -9,6 +9,7 @@ def get_env_urls(env):
     urls.container.card_broker = 'http://card-broker:8080'
     urls.container.card_service = 'http://card-service:8080'
     urls.container.player_service = 'http://player-service:8080'
+
     urls.container.player_service_db = (
         'postgresql+psycopg2://postgres:daleria@dukedoms-rdbs:5432/player_service'
     )
@@ -22,6 +23,7 @@ def get_env_urls(env):
     urls.local.action_broker = 'http://127.0.0.1:5007'
     urls.local.card_service = 'http://127.0.0.1:5005'
     urls.local.card_broker = 'http://127.0.0.1:5006'
+    urls.local.player_service = 'http://127.0.0.1:5004'
 
     urls.local.card_service_db = (
         'postgresql+psycopg2://postgres:daleria@127.0.0.1:5432/card_service'
