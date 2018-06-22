@@ -9,7 +9,7 @@ Feature: Game Flow
   Scenario: Activate New Game
     Given a pending game:
       | game id | account ids |
-      | 1337    | 11,13       |
+      | 1337    | 11       |
     When player service receives request to activate pending player:
       | account id | phase     |
       | 11         | inactive  |
